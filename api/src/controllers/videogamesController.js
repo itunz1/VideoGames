@@ -30,7 +30,8 @@ const getVideogamesByIdDb = async (id) => {
             description: searchIdDb.data.description,
             released: searchIdDb.data.released,
             rating: searchIdDb.data.rating,
-            platforms: searchIdDb.data.platforms.map((e) => e.platform.name),
+            platforms: searchIdDb.data.platforms.map((e) => e.name),
+            genres: searchIdDb.data.genres.map((e) => e.name),
             image: searchIdDb.data.background_image,
         }
 
@@ -53,6 +54,7 @@ const getVideogamesByIdApi = async (id) => {
                 released: searchIdApi.data.released,
                 rating: searchIdApi.data.rating,
                 platforms: searchIdApi.data.platforms.map((e) => e.platform.name),
+                genres: searchIdApi.data.genres.map((e) => e.name),
                 image: searchIdApi.data.background_image,
             }
 
@@ -88,6 +90,7 @@ const getVideogamesByNameApi = async (name) => {
             released: videogamesApi.data.released,
             rating: videogamesApi.data.rating,
             platforms: videogamesApi.data.platforms.map((e) => e.platform.name),
+            genres: videogamesApi.data.genres.map((e) => e.name),
             image: videogamesApi.data.background_image,
         }
 
@@ -111,6 +114,7 @@ const getApiInfo = async () => {
             released: e.released,
             rating: e.rating,
             platforms: e.platforms.map((e) => e.platform.name),
+            genres: e.genres.map((e) => e.name),
             image: e.background_image,
         })
     });
