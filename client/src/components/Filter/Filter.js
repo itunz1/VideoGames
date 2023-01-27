@@ -7,6 +7,7 @@ import {
     filterByGenero,
     filterByPlatform,
 } from '../../redux/actions';
+import './Filter.css'
 
 
 
@@ -49,32 +50,38 @@ export default function Filter() {
     const platforms = [...new Set(ArrNew)]
 
     return (
-        <div>
-            <label className='label'>Ordernar por nombre</label>
-            <select className='selector-az' onChange={e => { handleName(e) }}>
-                <option value="abc">A-Z</option>
-                <option value="zxy">Z-A</option>
-            </select>
+        <div className='filters'>
+            <div>
+                <label>Order by name</label>
+                <select className='selector-az' onChange={e => { handleName(e) }}>
+                    <option value="abc">A-Z</option>
+                    <option value="zxy">Z-A</option>
+                </select>
+            </div>
 
-            <label className='label'>ordenar por tipos</label>
-            <select className='selector-az' onChange={e => handleGenero(e)}>
-                <option value="all">All</option>
-                {genres?.map((e, index) => (
-                    <option key={index} value={e}>
-                        {e}
-                    </option>
-                ))}
-            </select>
+            <div>
+                <label>Ordenar by genres</label>
+                <select className='selector-az' onChange={e => handleGenero(e)}>
+                    <option value="all">All</option>
+                    {genres?.map((e, index) => (
+                        <option key={index} value={e}>
+                            {e}
+                        </option>
+                    ))}
+                </select>
+            </div>
 
-            <label className='label'>ordenar por plataforma</label>
-            <select className='selector-az' onChange={e => handlePlatform(e)}>
-                <option value="all">All</option>
-                {platforms?.map((e, index) => (
-                    <option key={index} value={e}>
-                        {e}
-                    </option>
-                ))}
-            </select>
+            <div>
+                <label>Order by platforms</label>
+                <select className='selector-az' onChange={e => handlePlatform(e)}>
+                    <option value="all">All</option>
+                    {platforms?.map((e, index) => (
+                        <option key={index} value={e}>
+                            {e}
+                        </option>
+                    ))}
+                </select>
+            </div>
         </div>
     )
 }

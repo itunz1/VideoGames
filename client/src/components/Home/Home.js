@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { 
+import {
   getVideogames,
   getGenero,
   filerByName,
-  filterByGenero, } from '../../redux/actions';
+  filterByGenero,
+} from '../../redux/actions';
 import Card from '../Card/Card'
 import './Home.css'
 import Filter from '../Filter/Filter';
 import SearchBar from '../SearchBar/SearchBar';
+import Pagination from '../Pagination/Pagination';
 
 export default function Home() {
 
   const dispatch = useDispatch();
+
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(8);
+
 
   const allVideogames = useSelector((state) => state.videogames)
 
@@ -23,20 +29,29 @@ export default function Home() {
     dispatch(getGenero())
   }, [dispatch])
 
+  const max = allVideogames && allVideogames.length / perPage;
+
   return (
-    <section>
-        <h1>VIDEOGAMES</h1>
-        <div>
-          <Filter/>
-          <SearchBar/>
+    <div>
+      <section>
+        <div className='filter-section'>
+          <Filter />
+          <SearchBar />
         </div>
-      <div className='card-container'>
-        {allVideogames && allVideogames.map(e => {
-          return (
-            <Card key={e.id} id={e.id} name={e.name} image={e.image} genres={e.genres} />
-          )
-        })}
-      </div>
-    </section>
+      </section>
+
+      <section className='card-section'>
+        <div className='card-container container'>
+          {allVideogames && allVideogames
+            .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
+            .map(e => {
+              return (
+                <Card key={e.id} id={e.id} name={e.name} image={e.image} genres={e.genres} />
+              )
+            })}
+        </div>
+      </section>
+      <Pagination page={page} setPage={setPage} max={max} />
+    </div>
   )
 }
