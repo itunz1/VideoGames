@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const getVideogames = () => {
     return async function (dispatch) {
-        let videogames = await axios.get('http://localhost:3001/videogame');
+        let videogames = await axios.get('http://localhost:8000/videogame');
 
         return dispatch({
             type: 'GET_VIDEOGAMES',
@@ -16,7 +16,7 @@ export const getVideogames = () => {
 export const searchByName = (name) => {
     return async function (dispatch) {
       try {
-        let videogamesSearch = axios.get(`http://localhost:3001/videogame?name=${name}`)
+        let videogamesSearch = axios.get(`http://localhost:8000/videogame?name=${name}`)
 
         return dispatch({
             type: 'SEARCH_BY_NAME',
@@ -32,7 +32,7 @@ export const searchByName = (name) => {
 export const getVideogamesDetail = (id) => {
     return async function (dispatch) {
         try {
-            let videogamesDetail = await axios.get(`http://localhost:3001/videogame/${id}`)
+            let videogamesDetail = await axios.get(`http://localhost:8000/videogame/${id}`)
 
             return dispatch({
                 type: 'GET_DETAIL',
@@ -48,7 +48,7 @@ export const getVideogamesDetail = (id) => {
 export const getGenero = () => {
     return async function (dispatch) {
       //dispatch({ type: "LOADING" })
-      var genero = await axios.get("http://localhost:3001/genero");
+      var genero = await axios.get("http://localhost:8000/genero");
       return dispatch({
         type: "GET_GENERO",
         payload: genero.data,
