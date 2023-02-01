@@ -1,23 +1,37 @@
 const axios = require('axios')
 const { Videogames, Genero } = require('../db')
 
-const getVideogamesDb = async () => {
-    try {
-        const videogamesDb = await Videogames.findAll({
+// const getVideogamesDb = async () => {
+//     try {
+//         const videogamesDb = await Videogames.findAll({
+//             include: {
+//                 model: Genero,
+//                 attributes: ['name'],
+//                 through: {
+//                     attributer: [],
+//                 },
+//             },
+//         })
+
+//         return videogamesDb
+//     } catch (error) {
+//         console.log(error)
+//     }
+// };
+
+function getVideogamesDb() {
+    return new Promise((resolve) => {
+        resolve(Videogames.findAll({
             include: {
                 model: Genero,
                 attributes: ['name'],
-                through: {
-                    attributer: [],
-                },
-            },
-        })
-
-        return videogamesDb
-    } catch (error) {
-        console.log(error)
-    }
-};
+                trough: {
+                    attributes: []
+                }
+            }
+        }))
+    })
+}
 
 
 const getVideogamesByIdDb = async (id) => {
@@ -66,16 +80,14 @@ const getVideogamesByIdApi = async (id) => {
 }
 
 const getVideogamesByNameDb = async (name) => {
-    try{
-      const videogamesDb2 = await getVideogamesDb()
-      const videogamesDb2Filter = videogamesDb2.filter(
-        (p) => p.name.toLowerCase() === name.toLowerCase(),
-      )
-      return videogamesDb2Filter
-    }catch (error) {
-      return 'Error de DB Videogame no encontrado'
+    try {
+        const videogamesDb2 = await getVideogamesDb()
+        const videogamesDb2Filter = videogamesDb2.filter(el => el.name.toLowerCase().includes(name.toLocaleLowerCase()))
+        return videogamesDb2Filter
+    } catch (error) {
+        return 'Error de DB Videogame no encontrado'
     }
-  }
+}
 
 const getVideogamesByNameApi = async (name) => {
     try {
@@ -102,10 +114,11 @@ const getVideogamesByNameApi = async (name) => {
 }
 
 const getApiInfo = async () => {
-    const apiUrl = await axios.get("https://api.rawg.io/api/games?key=cdb7f82b2f484adea80e4ca087b51cd2");
+    const apiUrl = await axios.get("https://api.rawg.io/api/games?key=cdb7f82b2f484adea80e4ca087b51cd2&page_size=48");
     const results = apiUrl.data.results
 
     const videogamesInfo = []
+    
 
     results.map(e => {
         videogamesInfo.push({
@@ -115,6 +128,7 @@ const getApiInfo = async () => {
             rating: e.rating,
             platforms: e.platforms.map((e) => e.platform.name),
             genres: e.genres.map((e) => e.name),
+            short_screenshots: e.short_screenshots.map((e) => e.image),
             image: e.background_image,
         })
     });

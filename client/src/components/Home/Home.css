@@ -14,6 +14,7 @@ body {
     line-height: 1;
     font-weight: 400;
     color: #555;
+    background-color: #1f143d
 }
 
 .container {
@@ -21,6 +22,7 @@ body {
     margin: 0 auto;
     padding: 0 3.2rem;
 }
+
 
 .heading-primary {
     font-size: 5.2rem;
@@ -42,6 +44,18 @@ body {
     line-height: 1.2;
     margin-bottom: 3.2rem;
 }
+
+/* ************************** */
+/* HERO SECTION */
+/* ************************** */
+
+.hero-section {
+    height: 75vh;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/vy4irqhlnzay3yeybfc0/best-sports-video-games?fimg-ssr-default');
+    background-size: cover;
+}
+
 
 /* ************************** */
 /* FILTER SECTION */

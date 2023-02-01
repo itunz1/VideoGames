@@ -16,7 +16,7 @@ export default function Pagination({ page, setPage, max }) {
     };
 
     const onKeyDown = (e) => {
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             setPage(parseInt(e.target.value))
 
             if (parseInt(e.target.value < 1) ||

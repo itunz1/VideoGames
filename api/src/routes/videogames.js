@@ -11,7 +11,7 @@ const {
 const { Videogames, Genero } = require('../db')
 const router = Router()
 
-//          GET POKEMOS / NAME         
+       
 
 router.get('/', async (req, res) => {
     const name = req.query.name

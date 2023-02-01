@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import {
-    getVideogames,
-    getGenero,
     filerByName,
     filterByGenero,
     filterByPlatform,
@@ -11,22 +9,22 @@ import './Filter.css'
 
 
 
-export default function Filter() {
+export default function Filter({ setPage }) {
 
     const dispatch = useDispatch()
     const gamesFilter = useSelector((state) => state.filter)
 
-    // const [, setFilter] = useState("");
+    const [,setOrden] = useState('')
 
-    useEffect(() => {
-        dispatch(getVideogames());
-        dispatch(getGenero());
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getVideogames());
+    //     dispatch(getGenero());
+    // }, [dispatch])
 
     function handleName(e) {
         e.preventDefault();
         dispatch(filerByName(e.target.value));
-        // setFilter(e.target.value)
+        setOrden(`Ordenado ${e.target.value}`)
     }
 
     function handleGenero(e) {
@@ -38,6 +36,7 @@ export default function Filter() {
         e.preventDefault();
         dispatch(filterByPlatform(e.target.value));
     }
+
 
     const objT = gamesFilter.map(e => e.genres);
     const NewArr = [];
@@ -53,7 +52,7 @@ export default function Filter() {
         <div className='filters'>
             <div>
                 <label>Order by name</label>
-                <select className='selector-az' onChange={e => { handleName(e) }}>
+                <select onChange={e =>  handleName(e)}>
                     <option value="abc">A-Z</option>
                     <option value="zxy">Z-A</option>
                 </select>
@@ -61,7 +60,7 @@ export default function Filter() {
 
             <div>
                 <label>Ordenar by genres</label>
-                <select className='selector-az' onChange={e => handleGenero(e)}>
+                <select onChange={e => handleGenero(e)}>
                     <option value="all">All</option>
                     {genres?.map((e, index) => (
                         <option key={index} value={e}>
@@ -73,7 +72,7 @@ export default function Filter() {
 
             <div>
                 <label>Order by platforms</label>
-                <select className='selector-az' onChange={e => handlePlatform(e)}>
+                <select onChange={e => handlePlatform(e)}>
                     <option value="all">All</option>
                     {platforms?.map((e, index) => (
                         <option key={index} value={e}>

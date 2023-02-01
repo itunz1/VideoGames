@@ -15,13 +15,17 @@ export const getVideogames = () => {
 
 export const searchByName = (name) => {
     return async function (dispatch) {
+      try {
         let videogamesSearch = axios.get(`http://localhost:3001/videogame?name=${name}`)
 
         return dispatch({
             type: 'SEARCH_BY_NAME',
-            payload: videogamesSearch.data
-        });
-    };
+            payload: videogamesSearch.data,
+        })
+      }catch(error){
+        console.log(error)
+      }
+    }
 };
 
 
@@ -44,7 +48,7 @@ export const getVideogamesDetail = (id) => {
 export const getGenero = () => {
     return async function (dispatch) {
       //dispatch({ type: "LOADING" })
-      var genero = await axios.get("http://localhost:3001/videogame/genero");
+      var genero = await axios.get("http://localhost:3001/genero");
       return dispatch({
         type: "GET_GENERO",
         payload: genero.data,

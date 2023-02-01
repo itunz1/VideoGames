@@ -7,7 +7,6 @@ const router = Router();
 router.get("/", async (req, res) => {
     let generos = await getGenero();
     res.status(200).send(generos);
-    console.log('genero', types)
   });
 
 module.exports = router;
