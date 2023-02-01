@@ -3,10 +3,10 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  RDS_USER, RDS_PASSWORD, RDS_HOST,
+  RDS_USER, RDS_PASSWORD, RDS_HOSTNAME,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${RDS_USER}:${RDS_PASSWORD}@${RDS_HOST}/videogames`, {
+const sequelize = new Sequelize(`postgres://${RDS_USER}:${RDS_PASSWORD}@${RDS_HOSTNAME}/videogames`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
