@@ -6,7 +6,7 @@ const {
   RDS_USER, RDS_PASSWORD, RDS_HOSTNAME,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${RDS_USER}:${RDS_PASSWORD}@${RDS_HOSTNAME}/videogames`, {
+const sequelize = new Sequelize(`postgres://postgres:17227936@rds.cb75r7pyujoj.us-east-1.rds.amazonaws.com/videogames`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
