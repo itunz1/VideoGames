@@ -9,17 +9,13 @@ import './Filter.css'
 
 
 
-export default function Filter({ setPage }) {
+export default function Filter() {
 
     const dispatch = useDispatch()
     const gamesFilter = useSelector((state) => state.filter)
 
     const [,setOrden] = useState('')
 
-    // useEffect(() => {
-    //     dispatch(getVideogames());
-    //     dispatch(getGenero());
-    // }, [dispatch])
 
     function handleName(e) {
         e.preventDefault();
@@ -52,9 +48,9 @@ export default function Filter({ setPage }) {
         <div className='filters'>
             <div>
                 <label>Order by name</label>
-                <select onChange={e =>  handleName(e)}>
-                    <option value="abc">A-Z</option>
-                    <option value="zxy">Z-A</option>
+                <select onChange={(e) => {handleName(e)}}>
+                    <option value="abc">a-z</option>
+                    <option value="zxy">z-a</option>
                 </select>
             </div>
 

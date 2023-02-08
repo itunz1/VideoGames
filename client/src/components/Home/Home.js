@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getVideogames,
   getGenero,
-  filerByName,
-  filterByGenero,
 } from '../../redux/actions';
 import Card from '../Card/Card'
 import './Home.css'
@@ -12,7 +10,11 @@ import Filter from '../Filter/Filter';
 import SearchBar from '../SearchBar/SearchBar';
 import Pagination from '../Pagination/Pagination';
 import HeroSection from '../HeroSection/HeroSection';
-import Nav from '../Nav/Nav';
+import Carousel from '../Carousel/Carousel';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { GoPerson } from "react-icons/go";
+
+
 
 
 
@@ -27,7 +29,6 @@ export default function Home() {
   const allVideo = useSelector((state) => state.videogames)
 
 
-  // console.log(allVideogames)
 
   useEffect(() => {
     dispatch(getVideogames())
@@ -39,12 +40,13 @@ export default function Home() {
 
   return (
     <div>
+      <header className='hero-section'>
+        <HeroSection />
+      </header>
 
-
-    <header className='hero-section'>
-      <Nav/>
-      <HeroSection/>
-    </header>
+      <section className='carousel-section container'>
+        <Carousel/>
+      </section>
 
       <section>
         <div className='filter-section'>
@@ -65,6 +67,17 @@ export default function Home() {
         </div>
       </section>
       <Pagination page={page} setPage={setPage} max={max} />
+
+      <footer className='footer-section container'>
+        <div>
+          <h4>About Me</h4>
+        </div>
+        <div className='icon-container'>
+          <a target='_blank' rel='noreferrer' href='https://github.com/itunz1'><FaGithub /></a>
+          <a target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/jose-lezama/'><FaLinkedin /></a>
+          <a target='_blank' rel='noreferrer' href='https://portfolio-4b57a.web.app/'><GoPerson /></a>
+        </div>
+      </footer>
     </div>
   )
 }

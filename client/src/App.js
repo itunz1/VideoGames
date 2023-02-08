@@ -1,16 +1,22 @@
 import './App.css';
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Routes, useLocation } from "react-router-dom";
 import Home from './components/Home/Home.js';
 import VideogameDetail from './components/VideogameDetail/VideogameDetail';
-import Nav from './components/Nav/Nav';
+import Carousel from './components/Carousel/Carousel';
+import Layout from './components/Layout/Layout';
 
 function App() {
+
+  const location = useLocation()
+
   return (
-    <BrowserRouter>
-      <Route path="/videogames/:id" component={Nav}/>
-      <Route path="/home" exact component={Home}/>
-      <Route path="/videogames/:id" component={VideogameDetail}/>
-    </BrowserRouter>
+    <Layout location={location}>
+      <Routes>
+        <Route path="/home" element={<Home/>} />
+        <Route path="/videogame/:id" element={<VideogameDetail/>} />
+        <Route path="/car" element={<Carousel/>} />
+      </Routes>
+  </Layout>
   );
 }
 

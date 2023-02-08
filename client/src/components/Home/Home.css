@@ -56,6 +56,13 @@ body {
     background-size: cover;
 }
 
+/* ************************** */
+/* CAROUSEL SECTION */
+/* ************************** */
+
+.carousel-section {
+   padding: 8.4rem;
+}
 
 /* ************************** */
 /* FILTER SECTION */
@@ -84,4 +91,34 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+}
+
+/* ************************** */
+/* FOOTER SECTION */
+/* ************************** */
+
+.footer-section {
+    padding: 4.8rem;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.icon-container {
+    font-size: 3rem;
+    text-decoration: none;
+    display: flex;
+    gap: 20px;
+}
+
+.icon-container svg {
+    fill: #6e6d93;
+    transition: all 0.3s;
+}
+
+.icon-container a:hover svg {
+    fill: #fff;
 }

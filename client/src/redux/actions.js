@@ -56,6 +56,16 @@ export const getGenero = () => {
     };
   };
 
+export const getMostPopular = () => {
+  return async function (dispatch) {
+    let popular = await axios.get("https://api.rawg.io/api/games?key=cdb7f82b2f484adea80e4ca087b51cd2&dates=2019-01-01,2019-12-31&ordering=-added");
+    return dispatch({
+      type: "GET_MOST_POPULAR",
+      payload: popular.data
+    })
+  }
+}
+
   export function filerByName(payload) {
     return{
       type: "FILTER_BY_NAME",

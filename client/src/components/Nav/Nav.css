@@ -13,3 +13,11 @@ nav div {
     font-size: 1.8rem;
     font-weight: 500;
 }
+
+.nav-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}

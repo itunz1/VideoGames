@@ -13,7 +13,7 @@ export default function Card({ id, name, image, genres }) {
 
 
   return (
-    <Link to={`/videogames/${id}`}>
+    <Link to={`/videogame/${id}`}>
       <div className='card'>
         <img src={image} alt="img not found" />
         <p className='card-tittle'><strong>{name}</strong></p>

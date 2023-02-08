@@ -3,6 +3,7 @@ const initialState = {
     allGenero: [],
     detail: [],
     allVideogames: [],
+    mostPopular: [],
     filter: [],
 };
 
@@ -29,7 +30,13 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 allGenero: action.payload,
-            };
+            }
+        case "GET_MOST_POPULAR":
+            return {
+                ...state,
+                mostPopular: action.payload,
+                // videogames: action.payload,
+            }
         case "FILTER_BY_NAME":
             const allGames = state.allVideogames;
             const orderGames = action.payload === 'abc'

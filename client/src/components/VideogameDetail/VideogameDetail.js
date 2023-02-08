@@ -1,33 +1,33 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getVideogamesDetail, getVideogames } from '../../redux/actions';
+import { Link, useParams } from "react-router-dom";
+import { getVideogamesDetail, getVideogames, getMostPopular } from '../../redux/actions';
 import './VideogameDetail.css'
 
 
-export default function VideogameDetail(props) {
+export default function VideogameDetail() {
 
   const dispatch = useDispatch();
+  let { id } = useParams()
   const gamesDetail = useSelector((state) => state.detail);
   const gameShots = useSelector((state) => state.videogames);
-
-  const id = props.match.params.id
-
-
+  
+  
   useEffect(() => {
     dispatch(getVideogames())
+    dispatch(getMostPopular())
     dispatch(getVideogamesDetail(id))
   }, [dispatch, id])
-
+  
   const arr = []
-
-  gameShots && gameShots.map(e => {
-    if (e.id === parseInt(id)) {
-      arr.push(e.short_screenshots)
-    }
-  })
-
-  console.log(arr)
-
+   
+      gameShots && gameShots.map(e => {
+        // console.log(e)
+        if (e.id === parseInt(id)) {
+          arr.push(e.short_screenshots)
+        } 
+      })
+      
   return (
     <div>
       <div className='detail-container container'>
@@ -66,10 +66,10 @@ export default function VideogameDetail(props) {
       <div className='container'>
         {arr?.map((e, i) => {
           return (
-            <div className='screenshots-container'>
+            <div key={i} className='screenshots-container'>
               <h3 className='heading-tertiary about screenshots'>SCREENSHOTS</h3>
               <figure className='screenshot-item'>
-              <img key={i} src={e[1]} alt='not found' />
+              <img src={e[1]} alt='not found' />
               </figure>
               <figure className='screenshot-item'>
               <img src={e[2]} alt='not found' />

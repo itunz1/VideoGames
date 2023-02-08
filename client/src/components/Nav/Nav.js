@@ -1,9 +1,12 @@
 import React from 'react'
 import './Nav.css'
 
-export default function Nav() {
+export default function Nav({ className }) {
+
+  
+
   return (
-    <nav>
+    <nav className={className}>
         <div> LOGO</div>
         <div>NAVIGATION</div>
     </nav>
