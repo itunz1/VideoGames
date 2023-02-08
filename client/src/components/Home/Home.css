@@ -36,7 +36,7 @@ body {
 .heading-secondary {
     font-size: 4.4rem;
     line-height: 1.2;
-    margin-bottom: 9.6rem;
+    margin-bottom: 8.4rem;
 }
 
 .heading-tertiary {
@@ -62,6 +62,7 @@ body {
 
 .carousel-section {
    padding: 8.4rem;
+   position: relative;
 }
 
 /* ************************** */
@@ -93,12 +94,17 @@ body {
     gap: 2rem;
 }
 
+.pagination-section {
+    padding: 4.8rem 0 12.8rem 0;
+}
+
 /* ************************** */
 /* FOOTER SECTION */
 /* ************************** */
 
 .footer-section {
-    padding: 4.8rem;
+    padding: 12.8rem 0;
+    border-top: 1px solid rgba(238, 238, 238, 0.2);
 }
 
 .footer-section h4 {

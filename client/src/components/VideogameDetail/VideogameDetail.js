@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getVideogamesDetail, getVideogames, getMostPopular } from '../../redux/actions';
 import './VideogameDetail.css'
 
@@ -22,7 +22,6 @@ export default function VideogameDetail() {
   const arr = []
    
       gameShots && gameShots.map(e => {
-        // console.log(e)
         if (e.id === parseInt(id)) {
           arr.push(e.short_screenshots)
         } 

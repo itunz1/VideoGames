@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
 
     try {
       const { id } = req.params
-      if (id.length < 5) {
+      if (id.length < 100000) {
         let searchIdApi = await getVideogamesByIdApi(id)
         res.status(200).send(searchIdApi)
       } else {

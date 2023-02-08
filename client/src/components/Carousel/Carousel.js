@@ -29,7 +29,7 @@ export default function SimpleSlider() {
 
     return (
         <>
-            <h2 className="heading-secondary">Most Popular Games!</h2>
+            <h2 className="heading-secondary carousel-title"><strong>Most Popular Games!</strong></h2>
             <Slider {...settings}>
                 {popular.results && popular.results.map((img, index) => {
                     return (

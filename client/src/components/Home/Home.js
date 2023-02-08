@@ -66,11 +66,14 @@ export default function Home() {
             })}
         </div>
       </section>
+      
+      <section className='pagination-section'>
       <Pagination page={page} setPage={setPage} max={max} />
+      </section>
 
       <footer className='footer-section container'>
         <div>
-          <h4>About Me</h4>
+          <h4>ABOUT ME</h4>
         </div>
         <div className='icon-container'>
           <a target='_blank' rel='noreferrer' href='https://github.com/itunz1'><FaGithub /></a>
