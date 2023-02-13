@@ -1,7 +1,7 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMostPopular, getVideogamesDetail, getVideogames } from "../../redux/actions";
-import { useParams, Link } from "react-router-dom";
+import { getMostPopular } from "../../redux/actions";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "./Carousel.css"
 import "./slick.css";

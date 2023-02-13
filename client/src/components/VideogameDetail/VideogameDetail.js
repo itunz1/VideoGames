@@ -25,6 +25,7 @@ export default function VideogameDetail() {
         if (e.id === parseInt(id)) {
           arr.push(e.short_screenshots)
         } 
+        return null;
       })
       
   return (

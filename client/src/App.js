@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, BrowserRouter, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from './components/Home/Home.js';
 import VideogameDetail from './components/VideogameDetail/VideogameDetail';
 import Carousel from './components/Carousel/Carousel';
