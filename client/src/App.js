@@ -12,7 +12,7 @@ function App() {
   return (
     <Layout location={location}>
       <Routes>
-        <Route path="/home" element={<Home/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/videogame/:id" element={<VideogameDetail/>} />
         <Route path="/car" element={<Carousel/>} />
       </Routes>
