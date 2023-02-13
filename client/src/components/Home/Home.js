@@ -23,7 +23,7 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
+  const [perPage] = useState(12);
 
 
   const allVideo = useSelector((state) => state.videogames)
