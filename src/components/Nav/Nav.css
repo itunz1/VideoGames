@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    height: 9.6rem;
+    padding: 0 4.8rem;
+    background-color: rgb(0, 0, 0);
+}
+
+nav div {
+    color: green;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.nav-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.logo-img {
+    width: 5%;
+    height: 10%;
+}

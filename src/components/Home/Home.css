@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: #555;
+    background-color: #1f143d
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+}
+
+
+.heading-primary {
+    font-size: 5.2rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: #333;
+    letter-spacing: -0.5px;
+    margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+    font-size: 4.4rem;
+    line-height: 1.2;
+    margin-bottom: 8.4rem;
+}
+
+.heading-tertiary {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 3.2rem;
+}
+
+/* ************************** */
+/* HERO SECTION */
+/* ************************** */
+
+.hero-section {
+    height: 75vh;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/vy4irqhlnzay3yeybfc0/best-sports-video-games?fimg-ssr-default');
+    background-size: cover;
+}
+
+/* ************************** */
+/* CAROUSEL SECTION */
+/* ************************** */
+
+.carousel-section {
+   padding: 8.4rem;
+   position: relative;
+}
+
+/* ************************** */
+/* FILTER SECTION */
+/* ************************** */
+
+.filter-section {
+    padding: 4.8rem 0 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+
+/* ************************** */
+/* CARD SECTION */
+/* ************************** */
+
+.card-section {
+    padding: 1.8rem 0 9.6rem 0;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.pagination-section {
+    padding: 4.8rem 0 0 0;
+}
+
+/* ************************** */
+/* FOOTER SECTION */
+/* ************************** */
+
+.footer-section {
+    padding: 12.8rem 0;
+    border-top: 1px solid rgba(238, 238, 238, 0.2);
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.icon-container {
+    font-size: 3rem;
+    text-decoration: none;
+    display: flex;
+    gap: 20px;
+}
+
+.icon-container svg {
+    fill: #6e6d93;
+    transition: all 0.3s;
+}
+
+.icon-container a:hover svg {
+    fill: #fff;
+}
